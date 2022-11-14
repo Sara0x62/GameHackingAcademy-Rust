@@ -127,8 +127,11 @@ impl GameCheat {
                 4,
                 &mut bytes_written,
             );
-            println!("Error code: {}", GetLastError());
-            println!("Addr: {:#x}", self.gold_addr);
+
+            if GetLastError() != 0 {
+                println!("Error code: {}", GetLastError());
+                println!("Addr: {:#x}", self.gold_addr);
+            }
         }
     }
 }
