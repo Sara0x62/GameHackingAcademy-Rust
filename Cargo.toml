@@ -1,0 +1,21 @@
+[package]
+name = "Wesnoth"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+winapi = { version = "0.3.9", features = ["minwindef", "windef", "memoryapi", "processthreadsapi", "winuser", "errhandlingapi"] }
+
+[[bin]]
+name = "Wesnoth"
+path = "main.rs"
+
+
+# Wesnoth runs in 32bit so run the cheat as 32bit too to avoid issues
+[build]
+target = "i686-pc-windows-msvc"
+
+[run]
+target = "i686-pc-windows-msvc"
