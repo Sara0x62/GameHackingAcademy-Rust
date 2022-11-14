@@ -5,4 +5,17 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[lib]
+name = "dll_memory_hack"
+path = "src/lib.rs"
+target = "i686-pc-windows-msvc"
+crate-type = ["cdylib"]
+
+[[bin]]
+name = "dll_injector"
+path = "src/main.rs"
+target = "i686-pc-windows-msvc"
+
 [dependencies]
+ctor = "0.1.26"
+dll-syringe = { version="0.13.1", features=["into-x86-from-x64"] }
