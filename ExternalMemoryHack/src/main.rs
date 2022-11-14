@@ -68,7 +68,7 @@ impl GameCheat {
             proc_handle = OpenProcess(PROCESS_ALL_ACCESS, FALSE, proc_id);
 
             if GetLastError() != 0 {
-                println!("Error, unable to get process ID | LastError = {}", GetLastError());
+                println!("Error, unable to get open process! | LastError = {}", GetLastError());
                 exit(0);
             }
         }

@@ -1,5 +1,5 @@
 [package]
-name = "Wesnoth"
+name = "external_memory_hack"
 version = "0.1.0"
 edition = "2021"
 
