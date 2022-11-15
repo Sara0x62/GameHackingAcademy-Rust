@@ -3,7 +3,7 @@ use winapi::{
             winuser::GetAsyncKeyState, 
             winnt::DLL_PROCESS_ATTACH,
             processthreadsapi::CreateThread,
-            minwinbase::SECURITY_ATTRIBUTES,
+            minwinbase::SECURITY_ATTRIBUTES, synchapi::Sleep,
         }, 
     shared::basetsd::DWORD_PTR
 };
@@ -25,6 +25,8 @@ fn injected_thread() {
 
                 *gold_addr = 9999;
             }
+
+            Sleep(10);
         }
     }
 }
