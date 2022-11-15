@@ -16,3 +16,5 @@ You can then pressing 'm' sets your gold to 9999
 The injector, which is a bit of WIP and unusable so far.
 Currently it crashes on injecting the dll, i'm unable to see why yet
 
+Ingame screenshot after pressing 'm':
+![image](https://user-images.githubusercontent.com/83826811/201967081-46767ac9-047e-471e-8098-c2ab93ccfb69.png)
