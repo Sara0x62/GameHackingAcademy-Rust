@@ -8,8 +8,10 @@ edition = "2021"
 [lib]
 name = "dll_memhack"
 path = "src/lib.rs"
-target = "i686-pc-windows-msvc"
 crate-type = ["cdylib"]
+
+[build]
+target = "i686-pc-windows-msvc"
 
 [dependencies]
 user32-sys = "0.2.0"
