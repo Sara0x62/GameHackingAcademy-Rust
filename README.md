@@ -8,5 +8,11 @@ this contains one of the first "hacks" made
 Using winapi to hook into the process and edit the value of how much gold the player has.
 
 ## DLLMemoryHack
-This one is still a WIP.
+(lib.rs)
+The .DLL itself, it works if injecting it with Cheat Engine.
+You can then pressing 'm' sets your gold to 9999
+
+(main.rs)
+The injector, which is a bit of WIP and unusable so far.
+Currently it crashes on injecting the dll, i'm unable to see why yet
 
